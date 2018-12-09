@@ -1,10 +1,10 @@
-package id.co.nlab.sample
+package id.co.nlab.sample.validation
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import id.co.nlab.nframework.validation.Validation
 import id.co.nlab.nframework.validation.ValidationDelegate
+import id.co.nlab.sample.R
 import kotlinx.android.synthetic.main.activity_validation.*
 
 class SampleValidation :AppCompatActivity(), ValidationDelegate {
@@ -27,10 +27,9 @@ class SampleValidation :AppCompatActivity(), ValidationDelegate {
         register.setOnClickListener{
             validator.validation()
         }
-
-
     }
 
     override fun validationSuccess(data: HashMap<String, String>) {
+        // Do something when all data validated
     }
 }

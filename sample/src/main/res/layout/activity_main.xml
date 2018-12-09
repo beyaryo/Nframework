@@ -5,27 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/success"
+        android:id="@+id/btn_validation"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="Success"/>
-    <Button
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="Loading"/>
-    <Button
-        android:id="@+id/failure"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="Failure"/>
-    <Button
-        android:id="@+id/update"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="Update"/>
+        android:layout_height="wrap_content"
+        android:text="Validation"
+        tools:ignore="HardcodedText" />
 
+    <Button
+        android:id="@+id/btn_permission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Permission"
+        tools:ignore="HardcodedText" />
 </LinearLayout>
