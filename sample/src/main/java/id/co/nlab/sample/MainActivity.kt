@@ -7,6 +7,7 @@ import android.widget.Toast
 import id.co.nlab.nframework.base.ViewState
 import id.co.nlab.sample.permission.PermissionActivity
 import id.co.nlab.sample.validation.SampleValidation
+import id.co.nlab.sample.view.TextInputActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(){
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity(){
 
         btn_validation.setOnClickListener { to(SampleValidation::class.java) }
         btn_permission.setOnClickListener { to(PermissionActivity::class.java) }
+        btn_til.setOnClickListener { to(TextInputActivity::class.java) }
     }
 
     private fun to(toActivity: Class<*>){

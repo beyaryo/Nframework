@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <id.co.nlab.nframework.view.TextInputLayout
+        android:id="@+id/til_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:hint="Default"
+            android:inputType="textPassword"
+            tools:ignore="HardcodedText" />
+    </id.co.nlab.nframework.view.TextInputLayout>
+
+    <id.co.nlab.nframework.view.TextInputLayout
+        android:id="@+id/til_center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:errorGravity="center"
+        app:errorColor="@color/brown">
+
+        <EditText
+            android:id="@+id/edit_center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:hint="Center"
+            android:inputType="textPassword"
+            tools:ignore="HardcodedText" />
+    </id.co.nlab.nframework.view.TextInputLayout>
+
+    <id.co.nlab.nframework.view.TextInputLayout
+        android:id="@+id/til_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorGravity="end"
+        app:errorColor="@color/yellow">
+
+        <EditText
+            android:id="@+id/edit_end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:hint="End"
+            android:inputType="textPassword"
+            tools:ignore="HardcodedText" />
+    </id.co.nlab.nframework.view.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_validate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Validate"
+        tools:ignore="HardcodedText" />
+</LinearLayout>

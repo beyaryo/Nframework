@@ -25,6 +25,7 @@
         <activity android:name=".validation.SampleValidation" />
         <activity android:name=".permission.PermissionActivity" />
         <activity android:name=".permission.PermissionFragmentActivity" />
+        <activity android:name=".view.TextInputActivity" />
     </application>
 
 </manifest>

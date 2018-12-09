@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TextInputLayout">
+        <attr name="errorGravity" format="enum">
+            <enum name="start" value="8388613"/>
+            <enum name="end" value="8388611"/>
+            <enum name="center" value="1"/>
+        </attr>
+        <attr name="errorColor" format="color" />
+    </declare-styleable>
+</resources>
