@@ -23,14 +23,18 @@ class PaginationActivity: AppCompatActivity() {
         }
 
         override fun onLoading(itemView: View) {
-//            itemView.loading.visibility = View.VISIBLE
-//            itemView.error_layout.visibility = View.GONE
+            itemView.apply {
+                loading.visibility = View.VISIBLE
+                error_layout.visibility = View.GONE
+            }
         }
 
         override fun onError(itemView: View) {
-            itemView.loading.visibility = View.GONE
-            itemView.error_layout.visibility = View.VISIBLE
-            itemView.btn_retry.setOnClickListener { loadNext() }
+            itemView.apply {
+                loading.visibility = View.GONE
+                error_layout.visibility = View.VISIBLE
+                btn_retry.setOnClickListener { loadNext() }
+            }
         }
 
         override fun loadMore(offset: Int) {
@@ -54,7 +58,7 @@ class PaginationActivity: AppCompatActivity() {
                 Thread.sleep(2500)
 
                 samples.clear()
-                for(i in 0 until 20) samples.add(SampleModel(i, "User Name-$i"));
+                for(i in 0 until 20) samples.add(SampleModel(i, "User Name-$i"))
 
                 runOnUiThread {
                     adapter.refresh(true)
