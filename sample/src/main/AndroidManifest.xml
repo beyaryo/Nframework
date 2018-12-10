@@ -26,6 +26,7 @@
         <activity android:name=".permission.PermissionActivity" />
         <activity android:name=".permission.PermissionFragmentActivity" />
         <activity android:name=".view.TextInputActivity" />
+        <activity android:name=".adapter.PaginationActivity" />
     </application>
 
 </manifest>
