@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 
 
-abstract class PaginationAdapter<Holder : RecyclerView.ViewHolder, DataClass>(
+abstract class PaginationAdapter<Holder : RecyclerView.ViewHolder, DataClass : Any>( // must add Any so ArrayList.addAll can be satisfied
         private var holder: Class<Holder>,
         private var data: ArrayList<DataClass>,
         private var itemView: Int,
@@ -26,7 +26,7 @@ abstract class PaginationAdapter<Holder : RecyclerView.ViewHolder, DataClass>(
 
     private var activity: Activity? = null
     private var recyclerView: RecyclerView? = null
-    private val paginationData = ArrayList<Any>()
+    private val paginationData = mutableListOf<Any>()
 
     private val TAG_LOAD = 0
     private val TAG_DATA = 1
@@ -36,8 +36,9 @@ abstract class PaginationAdapter<Holder : RecyclerView.ViewHolder, DataClass>(
     private val HEADER_IS_NULL = -751
 
     init {
-        this.paginationData.add(headerView != HEADER_IS_NULL)
-        this.data.mapTo(this.paginationData){}
+        if (headerView != HEADER_IS_NULL) this.paginationData.add(true)
+//        this.data.mapTo(this.paginationData) { dataClass -> dataClass.toString() }
+        this.paginationData.addAll(this.data)
         this.paginationData.add(state)
     }
 
@@ -92,7 +93,10 @@ abstract class PaginationAdapter<Holder : RecyclerView.ViewHolder, DataClass>(
                 if (paginationData[position] == State.ERROR) onError(holder.itemView)
                 else if (paginationData[position] != State.END) onLoading(holder.itemView)
             }
-            else -> onBind(holder as Holder, paginationData[position] as DataClass, index)
+            else -> {
+                Log.d("TAG", "size ${paginationData.size} $position ${paginationData[position]}")
+                onBind(holder as Holder, paginationData[position] as DataClass, index)
+            }
         }
     }
 
@@ -131,11 +135,12 @@ abstract class PaginationAdapter<Holder : RecyclerView.ViewHolder, DataClass>(
         if (clearAll) {
             activity?.runOnUiThread { recyclerView?.scrollToPosition(0) }
             paginationData.clear()
-            paginationData.add(headerView != HEADER_IS_NULL)
+            if (headerView != HEADER_IS_NULL) paginationData.add(true)
         } else
             paginationData.remove(paginationData.size - 1)
 
-        data.subList(paginationData.size, data.size).mapTo(paginationData){}
+//        data.subList(paginationData.size, data.size).mapTo(paginationData) { it }
+        paginationData.addAll(this.data.subList(paginationData.size, data.size))
         paginationData.add(this.state)
 
         activity?.runOnUiThread { notifyDataSetChanged() }

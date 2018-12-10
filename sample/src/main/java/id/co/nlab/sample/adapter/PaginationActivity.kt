@@ -54,7 +54,7 @@ class PaginationActivity: AppCompatActivity() {
                 Thread.sleep(2500)
 
                 samples.clear()
-                for(i in 0 until 20) samples.add(SampleModel(i, "User Name-$i"));
+                for(i in 0 until 20) samples.add(SampleModel(i, "User Name-$i"))
 
                 runOnUiThread {
                     adapter.refresh(true)
